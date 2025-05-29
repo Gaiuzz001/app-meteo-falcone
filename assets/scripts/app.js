@@ -2,14 +2,15 @@ const form = document.querySelector("#requests form");
 const input = document.querySelector("#requests input");
 const msg = document.querySelector("#requests .msg");
 const cities = document.getElementById("results");
+const lang = "it"
 const apiKey = "9e5a252b5eeca9d81166f9b9cae3294c";
 
 form.addEventListener("submit", event => {
     event.preventDefault();
 
     let city = input.value;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=${lang}&units=metric`;
+    
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -22,6 +23,10 @@ form.addEventListener("submit", event => {
             let description = data.weather[0].description;
 
             console.log(name, country, temp);
+
+            var parent = document.getElementById("results");
+            var child = parent.getElementsByTagName("div")[0];
+            parent.removeChild(child);
 
             let card = document.createElement("div");
             card.classList.add("card-meteo");
@@ -46,13 +51,15 @@ form.addEventListener("submit", event => {
                        
         `;
 
-        card.innerHTML = templateCard;
-        cities.appendChild(card);
-    })
+            card.innerHTML = templateCard;
+            cities.appendChild(card);
 
-    .catch(() => {
-        msg.textContent = "Città non trovata 🫠, cerca una città diversa"
-    });
+
+        })
+
+        .catch(() => {
+            msg.textContent = "Città non trovata 🫠, cerca una città diversa!"
+        });
 
     msg.textContent = "";
     form.reset();

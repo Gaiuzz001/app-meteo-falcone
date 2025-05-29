@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Meteo</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
     <header>
         <!-- logo -->
          <!-- intestazione e info generiche della nostra app meteo -->
+        <div class="logo">
+        <img src="assets/images/Climora png.png" alt="logo">
+        </div>
     </header>
     <main>
+       <div class="card-meteo">
         <section id="requests">
             <form>
-                <input type="text" placeholder="Cerca una città" autofocus>
-                <button type="submit">Invia</button>
+                <input type="text" class="search-bar" placeholder="Cerca una città" autofocus>
+                <button type="submit"><img src="assets/images/lente.svg" alt="Lente"></button>
                 <span class="msg"></span>
             </form>
 
         </section>
-
+        </div> 
         <section id="results">
-
-            <div class="card-meteo">
+            <div></div>
+            
                 <!-- <div class="card-meteo-header">
                     <h2 class="card-meteo-title">
                         <span>Milano</span>
@@ -39,7 +44,7 @@
                             <figcaption></figcaption>
                         </figure>   
                        </div>    -->
-                      </div> 
+                      
         </section>
 
 
@@ -52,3 +57,13 @@
     <script src="assets/scripts/app.js"></script>
 </body>
 </html>
+<!-- 
+- CSS x "città non trovata" + icone
+- Card non perfettamente centrata
+- Immagini che appaiono x ogni città con js + altre info aggiuntive oltre a quelle che ci sono già
+- Responsive @media (si accumula tutto se rimpicciolisco, controlla il codice)
+- Togliere le altre ricerche (per far si che non si accumulino e non sparisca la barra di ricerca)
+- Icona Dubai "clear sky" 
+- Lingua
+- Bordini marroni
+-->
