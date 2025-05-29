@@ -14,7 +14,7 @@ form.addEventListener("submit", event => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            
 
             let name = data.name;
             let country = data.sys.country;
@@ -22,7 +22,7 @@ form.addEventListener("submit", event => {
             let icon = data.weather[0].icon;
             let description = data.weather[0].description;
 
-            console.log(name, country, temp);
+            
 
             var parent = document.getElementById("results");
             var child = parent.getElementsByTagName("div")[0];
